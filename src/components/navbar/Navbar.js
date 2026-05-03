@@ -68,7 +68,7 @@ const NAV_LINKS = [
 function ChevronIcon({ active }) {
   return (
     <svg
-      className={"w-3 h-3 mt-0.5 transition-transform duration-200 " + (active ? "rotate-180" : "")}
+      className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${active ? "rotate-180" : ""}`}
       fill="none"
       viewBox="0 0 10 6"
       stroke="currentColor"
@@ -134,26 +134,22 @@ export default function Navbar() {
   const [expandedMobile, setExpandedMobile] = useState(null);
   const timeoutRef = useRef(null);
 
-  useEffect(function () {
+  useEffect(() => {
     function handleScroll() {
       setScrolled(window.scrollY > 30);
     }
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return function () {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(function () {
+  useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 1024) {
         setMobileOpen(false);
       }
     }
     window.addEventListener("resize", handleResize);
-    return function () {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   function handleDropdownEnter(label) {
@@ -162,34 +158,30 @@ export default function Navbar() {
   }
 
   function handleDropdownLeave() {
-    timeoutRef.current = setTimeout(function () {
+    timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 120);
   }
 
   function toggleMobile() {
-    setMobileOpen(function (v) {
-      return !v;
-    });
+    setMobileOpen((v) => !v);
   }
 
   function toggleMobileItem(label) {
-    setExpandedMobile(function (v) {
-      return v === label ? null : label;
-    });
+    setExpandedMobile((v) => (v === label ? null : label));
   }
 
+  // Mobile always dark; desktop transparent until scrolled
+  const headerClass = scrolled
+    ? "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-black/30 backdrop-blur-[22px] saturate-150 shadow-2xl border-b border-white/10"
+    : "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-black/30 backdrop-blur-[22px] saturate-150 shadow-xl border-b border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-transparent";
+
   return (
-    <header
-      className={
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out " +
-        (scrolled
-          ? "bg-black/30 backdrop-blur-[22px] saturate-150 shadow-2xl border-b border-white/10"
-          : "bg-transparent")
-      }
-    >
+    <header className={headerClass}>
+
       {/* TOP ROW */}
       <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-10 lg:pb-4 sm:px-8 lg:px-12">
+
         {/* Left - Phone */}
         <a
           href="tel:+442084004829"
@@ -204,7 +196,11 @@ export default function Navbar() {
           href="/"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 group"
         >
-          <LogoEmblem />
+          {/* Hide emblem on mobile, show on md+ */}
+          <span className="hidden md:block">
+            <LogoEmblem />
+          </span>
+          {/* Brand text hidden on mobile, visible on md+ */}
           <span className="hidden md:inline text-white text-[25px] font-semibold tracking-[0.2em] uppercase select-none">
             Chauffeur
           </span>
@@ -218,90 +214,73 @@ export default function Navbar() {
             className="lg:hidden ml-1 p-1.5 flex flex-col justify-center gap-[5px]"
           >
             <span
-              className={
-                "block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 " +
-                (mobileOpen ? "rotate-45 translate-y-[6.5px]" : "")
-              }
+              className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
             />
             <span
-              className={
-                "block w-[22px] h-[1.5px] bg-white transition-all duration-300 " +
-                (mobileOpen ? "opacity-0 scale-x-0" : "")
-              }
+              className={`block w-[22px] h-[1.5px] bg-white transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`}
             />
             <span
-              className={
-                "block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 " +
-                (mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : "")
-              }
+              className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
             />
           </button>
         </div>
       </div>
 
-      {/* Separator */}
+      {/* Separator - desktop only */}
       <div className="hidden lg:block h-px bg-white/15 mx-8" />
 
       {/* DESKTOP NAV */}
       <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-10 px-12 py-3">
-        {NAV_LINKS.map(function (link) {
-          return (
-            <div
-              key={link.label}
-              className="relative"
-              onMouseEnter={function () {
-                if (link.hasDropdown) handleDropdownEnter(link.label);
-              }}
-              onMouseLeave={handleDropdownLeave}
-            >
-              {link.clickable ? (
-                <Link
-                  href={link.href}
-                  className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200"
-                >
-                  {link.label}
-                  {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
-                </Link>
-              ) : (
-                <span className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200 cursor-default select-none">
-                  {link.label}
-                  {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
-                </span>
-              )}
+        {NAV_LINKS.map((link) => (
+          <div
+            key={link.label}
+            className="relative"
+            onMouseEnter={() => link.hasDropdown && handleDropdownEnter(link.label)}
+            onMouseLeave={handleDropdownLeave}
+          >
+            {link.clickable ? (
+              <Link
+                href={link.href}
+                className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200"
+              >
+                {link.label}
+                {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
+              </Link>
+            ) : (
+              <span className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200 cursor-default select-none">
+                {link.label}
+                {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
+              </span>
+            )}
 
-              {link.hasDropdown && link.items && (
-                <div
-                  className={
-                    "absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[190px] bg-black/80 backdrop-blur-[20px] saturate-150 border border-white/10 rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-200 " +
-                    (activeDropdown === link.label
-                      ? "opacity-100 translate-y-0 pointer-events-auto"
-                      : "opacity-0 -translate-y-2 pointer-events-none")
-                  }
-                >
-                  {link.items.map(function (item) {
-                    return (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="block px-5 py-3 text-white/80 text-[12px] tracking-[0.1em] uppercase hover:text-white hover:bg-white/8 transition-colors duration-150 border-b border-white/[0.06] last:border-0"
-                      >
-                        {item.label}
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          );
-        })}
+            {link.hasDropdown && link.items && (
+              <div
+                className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[190px] bg-black/80 backdrop-blur-[20px] saturate-150 border border-white/10 rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-200 ${
+                  activeDropdown === link.label
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 -translate-y-2 pointer-events-none"
+                }`}
+              >
+                {link.items.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block px-5 py-3 text-white/80 text-[12px] tracking-[0.1em] uppercase hover:text-white hover:bg-white/8 transition-colors duration-150 border-b border-white/[0.06] last:border-0"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </nav>
 
       {/* MOBILE MENU */}
       <div
-        className={
-          "lg:hidden overflow-hidden transition-all duration-400 ease-in-out bg-black/80 backdrop-blur-[20px] saturate-150 border-t border-white/10 " +
-          (mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0")
-        }
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out bg-black/80 backdrop-blur-[20px] saturate-150 border-t border-white/10 ${
+          mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <a
           href="tel:+442084004829"
@@ -311,67 +290,54 @@ export default function Navbar() {
           <span>+44 (0)20 8400 4829</span>
         </a>
 
-        {NAV_LINKS.map(function (link) {
-          return (
-            <div key={link.label} className="border-b border-white/[0.08]">
-              {link.hasDropdown ? (
-                <div>
-                  <button
-                    onClick={function () {
-                      toggleMobileItem(link.label);
-                    }}
-                    className="w-full flex items-center justify-between px-6 py-4 text-white text-[14px] font-normal tracking-[0.1em] uppercase"
-                  >
-                    {link.label}
-                    <svg
-                      className={
-                        "w-4 h-4 transition-transform duration-200 " +
-                        (expandedMobile === link.label ? "rotate-180" : "")
-                      }
-                      fill="none"
-                      viewBox="0 0 10 6"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                    >
-                      <path d="M1 1l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  <div
-                    className={
-                      "overflow-hidden transition-all duration-300 bg-white/5 " +
-                      (expandedMobile === link.label ? "max-h-60" : "max-h-0")
-                    }
-                  >
-                    {link.items && link.items.map(function (item) {
-                      return (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          onClick={function () {
-                            setMobileOpen(false);
-                          }}
-                          className="block px-10 py-3 text-white/70 text-[13px] tracking-[0.08em] uppercase hover:text-white transition-colors"
-                        >
-                          {item.label}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  href={link.href}
-                  onClick={function () {
-                    setMobileOpen(false);
-                  }}
-                  className="block px-6 py-4 text-white text-[14px] font-normal tracking-[0.1em] uppercase hover:text-white/70 transition-colors"
+        {NAV_LINKS.map((link) => (
+          <div key={link.label} className="border-b border-white/[0.08]">
+            {link.hasDropdown ? (
+              <div>
+                <button
+                  onClick={() => toggleMobileItem(link.label)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-white text-[14px] font-normal tracking-[0.1em] uppercase"
                 >
                   {link.label}
-                </Link>
-              )}
-            </div>
-          );
-        })}
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-200 ${expandedMobile === link.label ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 10 6"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <path d="M1 1l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 bg-white/5 ${
+                    expandedMobile === link.label ? "max-h-60" : "max-h-0"
+                  }`}
+                >
+                  {link.items && link.items.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-10 py-3 text-white/70 text-[13px] tracking-[0.08em] uppercase hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="block px-6 py-4 text-white text-[14px] font-normal tracking-[0.1em] uppercase hover:text-white/70 transition-colors"
+              >
+                {link.label}
+              </Link>
+            )}
+          </div>
+        ))}
 
         <div className="flex flex-col gap-3 px-6 py-5">
           <a
@@ -382,15 +348,14 @@ export default function Navbar() {
           </a>
           <Link
             href="/book"
-            onClick={function () {
-              setMobileOpen(false);
-            }}
+            onClick={() => setMobileOpen(false)}
             className="flex items-center justify-center px-5 py-3 rounded-full border border-white text-white text-[12px] font-semibold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-all duration-300"
           >
             Book Now
           </Link>
         </div>
       </div>
+
     </header>
   );
 }

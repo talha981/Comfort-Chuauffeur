@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const VEHICLES = [
   {
-    name: "Mercedes Benz S-Class ",
+    name: "Mercedes Benz S-Class",
     minBooking: "Min 6 Hours Booking",
     description: "Insured, leather interior, air conditioning, rain sensor, panoramic roof",
     price: 75,
@@ -30,7 +30,7 @@ const VEHICLES = [
     href: "/book?car=mercedes-e-class",
   },
   {
-    name: "Mercedes Benz S-Class ",
+    name: "Mercedes Benz S-Class",
     minBooking: "Min 6 Hours Booking",
     description: "Insured, leather interior, air conditioning, rain sensor, panoramic roof",
     price: 55,
@@ -44,45 +44,47 @@ const VEHICLES = [
   },
 ];
 
-// SVG Icons matching the reference
 function BagIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <path d="M16 10a4 4 0 01-8 0"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 01-8 0" />
     </svg>
   );
 }
 
 function SeatIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   );
 }
 
 function FuelIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14"/>
-      <path d="M3 22h12"/>
-      <path d="M15 8h2a2 2 0 012 2v3a2 2 0 002 2h0a2 2 0 002-2V9.5L19 6"/>
-      <line x1="7" y1="6" x2="7" y2="2"/>
-      <line x1="11" y1="6" x2="11" y2="2"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 22V8a2 2 0 012-2h8a2 2 0 012 2v14" />
+      <path d="M3 22h12" />
+      <path d="M15 8h2a2 2 0 012 2v3a2 2 0 002 2h0a2 2 0 002-2V9.5L19 6" />
+      <line x1="7" y1="6" x2="7" y2="2" />
+      <line x1="11" y1="6" x2="11" y2="2" />
     </svg>
   );
 }
 
 function TransmissionIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="3" width="6" height="6" rx="1"/>
-      <rect x="16" y="3" width="6" height="6" rx="1"/>
-      <rect x="9" y="15" width="6" height="6" rx="1"/>
-      <path d="M5 9v4h14V9"/>
-      <line x1="12" y1="13" x2="12" y2="15"/>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="6" height="6" rx="1" />
+      <rect x="16" y="3" width="6" height="6" rx="1" />
+      <rect x="9" y="15" width="6" height="6" rx="1" />
+      <path d="M5 9v4h14V9" />
+      <line x1="12" y1="13" x2="12" y2="15" />
     </svg>
   );
 }
@@ -99,7 +101,8 @@ function getIcon(type) {
 
 function VehicleCard({ vehicle }) {
   return (
-    <div className="flex flex-col">
+    <div className="bg-white rounded-2xl overflow-hidden flex flex-col" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
+
       {/* Image with price badge */}
       <div className="relative w-full" style={{ aspectRatio: "430/220" }}>
         <img
@@ -108,34 +111,31 @@ function VehicleCard({ vehicle }) {
           className="w-full h-full object-cover"
           style={{ display: "block" }}
         />
-        {/* Price badge – dark circle top right */}
+        {/* Price badge */}
         <div
-          className="absolute top-3 right-3 flex flex-col items-center justify-center rounded-full"
-          style={{
-            width: "72px",
-            height: "72px",
-            background: "rgba(10,10,10,0.88)",
-          }}
+          className="absolute top-3 right-3 flex flex-col items-center justify-center rounded-full bg-blue-600"
+          style={{ width: "72px", height: "72px" }}
         >
-          <span style={{ color: "#c9a84c", fontSize: "18px", fontWeight: 700, lineHeight: 1.1 }}>
+          <span style={{ color: "#fff", fontSize: "18px", fontWeight: 700, lineHeight: 1.1 }}>
             £{vehicle.price}
           </span>
-          <span style={{ color: "#ffffff", fontSize: "10px", fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1.2 }}>
+          <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "10px", fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1.2 }}>
             per hour
           </span>
         </div>
       </div>
 
       {/* Card body */}
-      <div className="flex flex-col items-center text-center pt-5 pb-0 px-2">
+      <div className="flex flex-col items-center text-center pt-5 pb-6 px-5 flex-1">
+
         {/* Car name */}
         <h3
+          className="text-gray-900 mb-1"
           style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: "22px",
+            fontFamily: "Georgia, 'Times New Roman', serif",
+            fontSize: "20px",
             fontWeight: 700,
-            color: "#1a1a1a",
-            marginBottom: "6px",
+            letterSpacing: "-0.01em",
             lineHeight: 1.25,
           }}
         >
@@ -143,54 +143,34 @@ function VehicleCard({ vehicle }) {
         </h3>
 
         {/* Min booking */}
-        <p
-          style={{
-            color: "#c9a84c",
-            fontSize: "14px",
-            fontStyle: "italic",
-            fontWeight: 500,
-            marginBottom: "10px",
-          }}
-        >
+        <p className="text-gray-500 text-[13px] font-semibold mb-3">
           {vehicle.minBooking}
         </p>
 
+        {/* Divider */}
+        <div className="w-full h-px bg-gray-200 mb-4" />
+
         {/* Description */}
-        <p
-          style={{
-            color: "#555",
-            fontSize: "13.5px",
-            lineHeight: 1.55,
-            marginBottom: "18px",
-            maxWidth: "340px",
-          }}
-        >
+        <p className="text-gray-600 text-[14px] leading-relaxed mb-5" style={{ maxWidth: "320px" }}>
           {vehicle.description}
         </p>
 
         {/* Feature pills */}
-        <div className="flex gap-2 justify-center w-full mb-5" style={{ flexWrap: "wrap" }}>
+        <div className="flex gap-2 justify-center w-full mb-6" style={{ flexWrap: "wrap" }}>
           {vehicle.features.map((f) => (
             <div
               key={f.label}
-              className="flex flex-col items-center justify-center gap-1"
+              className="flex flex-col items-center justify-center gap-1.5 text-gray-500"
               style={{
-                border: "1px solid #ddd",
-                borderRadius: "4px",
+                border: "1px solid #e5e7eb",
+                borderRadius: "8px",
                 padding: "10px 14px",
-                minWidth: "85px",
+                minWidth: "80px",
                 flex: "1",
               }}
             >
               {getIcon(f.icon)}
-              <span
-                style={{
-                  fontSize: "12px",
-                  color: "#333",
-                  fontWeight: 500,
-                  marginTop: "2px",
-                }}
-              >
+              <span className="text-gray-700 text-[12px] font-500" style={{ fontSize: "12px", fontWeight: 500 }}>
                 {f.label}
               </span>
             </div>
@@ -200,20 +180,12 @@ function VehicleCard({ vehicle }) {
         {/* Book Now button */}
         <Link
           href={vehicle.href}
-          className="w-full flex items-center justify-center transition-opacity duration-200 hover:opacity-85"
-          style={{
-            background: "#c9a84c",
-            color: "#fff",
-            fontSize: "15px",
-            fontWeight: 600,
-            letterSpacing: "0.04em",
-            padding: "16px 0",
-            borderRadius: "0",
-            textDecoration: "none",
-          }}
+          className="w-full flex items-center justify-between bg-blue-600 hover:bg-blue-700 text-white font-bold text-[12px] tracking-[0.18em] uppercase px-6 py-4 rounded-full transition-all duration-300 group"
         >
-          Book Now →
+          <span>Book Now</span>
+          <span className="text-lg group-hover:translate-x-1 transition-transform duration-300">→</span>
         </Link>
+
       </div>
     </div>
   );
@@ -221,52 +193,29 @@ function VehicleCard({ vehicle }) {
 
 export default function PopularVehicles() {
   return (
-    <section
-      style={{
-        background: "#f4f4f4",
-        paddingTop: "60px",
-        paddingBottom: "70px",
-        width: "100%",
-      }}
-    >
-      {/* Section heading */}
-      <div className="text-center mb-10">
-        <h2
-          style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            fontSize: "clamp(36px, 5vw, 52px)",
-            fontWeight: 400,
-            color: "#1a1a1a",
-            letterSpacing: "-0.01em",
-            marginBottom: "14px",
-          }}
-        >
-          Popular Vehicles
-        </h2>
-        {/* Gold underline bar */}
-        <div
-          style={{
-            width: "44px",
-            height: "3px",
-            background: "#c9a84c",
-            margin: "0 auto",
-          }}
-        />
-      </div>
+    <section className="w-full bg-white px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
 
+      {/* Section heading — matches BookSClass h2 */}
+      <h2
+        className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2"
+        style={{ fontFamily: "Georgia, serif", letterSpacing: "-0.01em" }}
+      >
+        POPULAR VEHICLES
+      </h2>
+      <div className="h-px bg-gray-200 mb-10" />
+
+      {/* Grid */}
       <div
+        className="vehicles-grid"
         style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 24px",
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "32px",
+          gap: "24px",
+          maxWidth: "1200px",
         }}
-        className="vehicles-grid"
       >
-        {VEHICLES.map((vehicle) => (
-          <VehicleCard key={vehicle.name} vehicle={vehicle} />
+        {VEHICLES.map((vehicle, i) => (
+          <VehicleCard key={i} vehicle={vehicle} />
         ))}
       </div>
 
