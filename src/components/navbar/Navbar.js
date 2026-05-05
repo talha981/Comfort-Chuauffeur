@@ -10,8 +10,8 @@ const NAV_LINKS = [
     clickable: false,
     hasDropdown: true,
     items: [
-      { label: "Rolls Royce", href: "/mercedes-s-class" },
-      { label: "Mercedes S-Class", href: "/about/mercedes-s-class" },
+      { label: " Mercedes S-Class", href: "/mercedes-s-class" },
+      { label: "Rolls Royce", href: "/about/mercedes-s-class" },
       { label: "Range Rover", href: "/about/range-rover" },
       { label: "BMW 7 Series", href: "/about/bmw-7-series" },
     ],

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PopularVehicles from "@/components/home/Vehicles";
+import SustainableTravel from "@/components/home/SustainableTravel";
 
 /* ================= TYPING SLIDER ================= */
 function TypingSlider() {
@@ -105,45 +106,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= SECTION 2 ================= */}
-      <section className="w-full py-24 px-6 bg-white text-center">
-
-        <h2 className="text-4xl font-bold mb-6">
-          Powerful Features
-        </h2>
-
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Build scalable applications with clean architecture, reusable components, and modern UI design.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-
-          <div className="p-6 border rounded-xl shadow-sm">
-            <h3 className="text-xl font-semibold">Fast Performance</h3>
-            <p className="text-gray-500 mt-2">
-              Optimized with Next.js for speed and SEO.
-            </p>
-          </div>
-
-          <div className="p-6 border rounded-xl shadow-sm">
-            <h3 className="text-xl font-semibold">Modern UI</h3>
-            <p className="text-gray-500 mt-2">
-              Built with Tailwind CSS for clean design.
-            </p>
-          </div>
-
-          <div className="p-6 border rounded-xl shadow-sm">
-            <h3 className="text-xl font-semibold">Scalable</h3>
-            <p className="text-gray-500 mt-2">
-              Perfect structure for large applications.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
+    
       {/* ================= VEHICLES ================= */}
       <PopularVehicles />
+      <SustainableTravel/>
 
     </div>
   );

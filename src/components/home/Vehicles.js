@@ -101,25 +101,27 @@ function getIcon(type) {
 
 function VehicleCard({ vehicle }) {
   return (
-    <div className="bg-white rounded-2xl overflow-hidden flex flex-col" style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.08)" }}>
-
-      {/* Image with price badge */}
-      <div className="relative w-full" style={{ aspectRatio: "430/220" }}>
+    <div
+      className="bg-white rounded-2xl overflow-hidden flex flex-col"
+      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.08)" }}
+    >
+      {/* Image area */}
+      <div className="relative w-full bg-gray-50" style={{ aspectRatio: "430/240" }}>
         <img
           src={vehicle.image}
           alt={vehicle.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain p-4"
           style={{ display: "block" }}
         />
         {/* Price badge */}
         <div
-          className="absolute top-3 right-3 flex flex-col items-center justify-center rounded-full bg-blue-600"
-          style={{ width: "72px", height: "72px" }}
+          className="absolute top-4 right-4 flex flex-col items-center justify-center rounded-full bg-blue-600"
+          style={{ width: "68px", height: "68px" }}
         >
-          <span style={{ color: "#fff", fontSize: "18px", fontWeight: 700, lineHeight: 1.1 }}>
+          <span style={{ color: "#fff", fontSize: "17px", fontWeight: 700, lineHeight: 1.1 }}>
             £{vehicle.price}
           </span>
-          <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "10px", fontWeight: 400, letterSpacing: "0.02em", lineHeight: 1.2 }}>
+          <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "9px", fontWeight: 400, letterSpacing: "0.03em", lineHeight: 1.3 }}>
             per hour
           </span>
         </div>
@@ -143,47 +145,45 @@ function VehicleCard({ vehicle }) {
         </h3>
 
         {/* Min booking */}
-        <p className="text-gray-500 text-[13px] font-semibold mb-3">
+        <p className="text-gray-400 text-[13px] font-medium mb-4">
           {vehicle.minBooking}
         </p>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-200 mb-4" />
+        <div className="w-full h-px bg-gray-100 mb-4" />
 
         {/* Description */}
-        <p className="text-gray-600 text-[14px] leading-relaxed mb-5" style={{ maxWidth: "320px" }}>
+        <p className="text-gray-500 text-[13.5px] leading-relaxed mb-5" style={{ maxWidth: "300px" }}>
           {vehicle.description}
         </p>
 
         {/* Feature pills */}
-        <div className="flex gap-2 justify-center w-full mb-6" style={{ flexWrap: "wrap" }}>
+        <div className="flex gap-2 justify-center w-full mb-6">
           {vehicle.features.map((f) => (
             <div
               key={f.label}
-              className="flex flex-col items-center justify-center gap-1.5 text-gray-500"
+              className="flex flex-col items-center justify-center gap-1.5 text-gray-400 flex-1"
               style={{
                 border: "1px solid #e5e7eb",
                 borderRadius: "8px",
-                padding: "10px 14px",
-                minWidth: "80px",
-                flex: "1",
+                padding: "10px 8px",
               }}
             >
               {getIcon(f.icon)}
-              <span className="text-gray-700 text-[12px] font-500" style={{ fontSize: "12px", fontWeight: 500 }}>
+              <span style={{ fontSize: "11px", fontWeight: 500, color: "#4b5563" }}>
                 {f.label}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Book Now button */}
+        {/* Book Now button — text and arrow centred together */}
         <Link
           href={vehicle.href}
-          className="w-full flex items-center justify-between bg-blue-600 hover:bg-blue-700 text-white font-bold text-[12px] tracking-[0.18em] uppercase px-6 py-4 rounded-full transition-all duration-300 group"
+          className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-[13px] tracking-[0.12em] uppercase px-6 py-4 rounded-full transition-all duration-300 group"
         >
           <span>Book Now</span>
-          <span className="text-lg group-hover:translate-x-1 transition-transform duration-300">→</span>
+          <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
         </Link>
 
       </div>
@@ -193,30 +193,33 @@ function VehicleCard({ vehicle }) {
 
 export default function PopularVehicles() {
   return (
-    <section className="w-full bg-white px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
+    <section className="w-full bg-white py-14 lg:py-20">
 
-      {/* Section heading — matches BookSClass h2 */}
-      <h2
-        className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2"
-        style={{ fontFamily: "Georgia, serif", letterSpacing: "-0.01em" }}
-      >
-        POPULAR VEHICLES
-      </h2>
-      <div className="h-px bg-gray-200 mb-10" />
+      {/* Centred max-width wrapper */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
 
-      {/* Grid */}
-      <div
-        className="vehicles-grid"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "24px",
-          maxWidth: "1200px",
-        }}
-      >
-        {VEHICLES.map((vehicle, i) => (
-          <VehicleCard key={i} vehicle={vehicle} />
-        ))}
+        {/* Centred heading */}
+        <div className="text-center mb-4">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+            style={{ fontFamily: "Georgia, serif", letterSpacing: "-0.01em" }}
+          >
+            POPULAR VEHICLES
+          </h2>
+        </div>
+
+        {/* Full-width divider */}
+        <div className="h-px bg-gray-200 mb-10" />
+
+        {/* Cards grid */}
+        <div
+          className="vehicles-grid"
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}
+        >
+          {VEHICLES.map((vehicle, i) => (
+            <VehicleCard key={i} vehicle={vehicle} />
+          ))}
+        </div>
       </div>
 
       <style>{`
