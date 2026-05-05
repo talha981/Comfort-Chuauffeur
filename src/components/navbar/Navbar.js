@@ -35,7 +35,7 @@ const NAV_LINKS = [
     hasDropdown: false,
   },
   {
-    label: "Chauffeurs",
+    label: "Chauffeur",
     href: "/chauffeurs",
     clickable: true,
     hasDropdown: true,
