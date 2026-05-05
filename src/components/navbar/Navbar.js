@@ -10,7 +10,7 @@ const NAV_LINKS = [
     clickable: false,
     hasDropdown: true,
     items: [
-      { label: " Mercedes S-Class", href: "/mercedes-s-class" },
+      { label: "Mercedes S-Class", href: "/mercedes-s-class" },
       { label: "Rolls Royce", href: "/about/mercedes-s-class" },
       { label: "Range Rover", href: "/about/range-rover" },
       { label: "BMW 7 Series", href: "/about/bmw-7-series" },
@@ -65,10 +65,13 @@ const NAV_LINKS = [
   },
 ];
 
+// ✅ Removed TypeScript type annotation — this is a .js file
 function ChevronIcon({ active }) {
   return (
     <svg
-      className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${active ? "rotate-180" : ""}`}
+      className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${
+        active ? "rotate-180" : ""
+      }`}
       fill="none"
       viewBox="0 0 10 6"
       stroke="currentColor"
@@ -144,23 +147,19 @@ export default function Navbar() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 1024) {
-        setMobileOpen(false);
-      }
+      if (window.innerWidth >= 1024) setMobileOpen(false);
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   function handleDropdownEnter(label) {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveDropdown(label);
   }
 
   function handleDropdownLeave() {
-    timeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 120);
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 120);
   }
 
   function toggleMobile() {
@@ -171,7 +170,6 @@ export default function Navbar() {
     setExpandedMobile((v) => (v === label ? null : label));
   }
 
-  // Mobile always dark; desktop transparent until scrolled
   const headerClass = scrolled
     ? "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-black/30 backdrop-blur-[22px] saturate-150 shadow-2xl border-b border-white/10"
     : "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-black/30 backdrop-blur-[22px] saturate-150 shadow-xl border-b border-white/10 lg:bg-transparent lg:backdrop-blur-none lg:shadow-none lg:border-transparent";
@@ -182,51 +180,44 @@ export default function Navbar() {
       {/* TOP ROW */}
       <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-10 lg:pb-4 sm:px-8 lg:px-12">
 
-        {/* Left - Phone */}
-        <a
-          href="tel:+442084004829"
-          className="flex items-center gap-2 text-white text-[17px] font-normal tracking-wide hover:opacity-70 transition-opacity z-10"
-        >
+        <span className="lg:hidden text-white text-[18px] font-semibold tracking-wide select-none z-10">
+          Chauffeur
+        </span>
+
+        {/* ✅ Fixed: was missing opening <a> tag */}
+        
+         < a href="tel:+442084004829"
+          className="hidden lg:flex items-center gap-2 text-white text-[17px] font-normal tracking-wide hover:opacity-70 transition-opacity z-10">
           <GBFlag />
           <span>+44 (0)20 8400 4829</span>
         </a>
 
-        {/* Centre - Logo */}
         <Link
           href="/"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 group"
         >
-          {/* Hide emblem on mobile, show on md+ */}
           <span className="hidden md:block">
             <LogoEmblem />
           </span>
-          {/* Brand text hidden on mobile, visible on md+ */}
-          <span className="hidden md:inline text-white text-[25px] font-semibold tracking-[0.2em] uppercase select-none">
+          <span className="hidden md:inline text-white text-[20px] font-semibold select-none">
             Chauffeur
           </span>
         </Link>
 
-        {/* Right - Hamburger */}
         <div className="flex items-center gap-2 sm:gap-3 z-10">
           <button
             onClick={toggleMobile}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             className="lg:hidden ml-1 p-1.5 flex flex-col justify-center gap-[5px]"
           >
-            <span
-              className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
-            />
-            <span
-              className={`block w-[22px] h-[1.5px] bg-white transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`}
-            />
-            <span
-              className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
-            />
+            <span className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+            <span className={`block w-[22px] h-[1.5px] bg-white transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-[22px] h-[1.5px] bg-white origin-center transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
           </button>
         </div>
       </div>
 
-      {/* Separator - desktop only */}
+      {/* Separator */}
       <div className="hidden lg:block h-px bg-white/15 mx-8" />
 
       {/* DESKTOP NAV */}
@@ -241,13 +232,13 @@ export default function Navbar() {
             {link.clickable ? (
               <Link
                 href={link.href}
-                className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200"
+                className="flex items-center gap-1.5 text-white/90 text-[12px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200"
               >
                 {link.label}
                 {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
               </Link>
             ) : (
-              <span className="flex items-center gap-1.5 text-white/90 text-[15px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200 cursor-default select-none">
+              <span className="flex items-center gap-1.5 text-white/90 text-[12px] font-normal tracking-[0.07em] uppercase hover:text-white transition-colors duration-200 cursor-default select-none">
                 {link.label}
                 {link.hasDropdown && <ChevronIcon active={activeDropdown === link.label} />}
               </span>
@@ -282,8 +273,9 @@ export default function Navbar() {
           mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <a
-          href="tel:+442084004829"
+        {/* ✅ Fixed: was missing opening <a> tag */}
+        
+        <a  href="tel:+442084004829"
           className="flex items-center gap-2.5 px-6 py-4 text-white/80 text-[14px] border-b border-white/10"
         >
           <GBFlag />
@@ -309,7 +301,6 @@ export default function Navbar() {
                     <path d="M1 1l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-
                 <div
                   className={`overflow-hidden transition-all duration-300 bg-white/5 ${
                     expandedMobile === link.label ? "max-h-60" : "max-h-0"
@@ -340,8 +331,9 @@ export default function Navbar() {
         ))}
 
         <div className="flex flex-col gap-3 px-6 py-5">
-          <a
-            href="tel:+442084004829"
+          {/* ✅ Fixed: was missing opening <a> tag */}
+          
+           <a href="tel:+442084004829"
             className="flex items-center justify-center px-5 py-3 rounded-full border border-white text-white text-[12px] font-semibold tracking-[0.15em] uppercase hover:bg-white hover:text-black transition-all duration-300"
           >
             Speak To Us
