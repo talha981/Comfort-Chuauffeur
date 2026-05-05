@@ -115,7 +115,7 @@ function VehicleCard({ vehicle }) {
         />
         {/* Price badge */}
         <div
-          className="absolute top-4 right-4 flex flex-col items-center justify-center rounded-full bg-blue-600"
+          className="absolute top-4 right-4 flex flex-col items-center justify-center rounded-full bg-[#c9a84c] hover:bg-[#b8963f]"
           style={{ width: "68px", height: "68px" }}
         >
           <span style={{ color: "#fff", fontSize: "17px", fontWeight: 700, lineHeight: 1.1 }}>
@@ -179,9 +179,9 @@ function VehicleCard({ vehicle }) {
 
         {/* Book Now button — text and arrow centred together */}
         <Link
-          href={vehicle.href}
-          className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-[13px] tracking-[0.12em] uppercase px-6 py-4 rounded-full transition-all duration-300 group"
-        >
+  href={vehicle.href}
+  className="w-full flex items-center justify-center gap-2 bg-[#c9a84c] hover:bg-[#b8963f] text-white font-semibold text-[13px] tracking-[0.12em] uppercase px-6 py-4 rounded-full transition-all duration-300 group"
+>
           <span>Book Now</span>
           <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
         </Link>
