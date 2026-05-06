@@ -110,7 +110,6 @@ export default function Home() {
     
       {/* ================= VEHICLES ================= */}
       <PopularVehicles />
-      <SustainableTravel/>
       <OutstandingService/>
 
     </div>
