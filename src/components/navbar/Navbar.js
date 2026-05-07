@@ -178,7 +178,7 @@ export default function Navbar() {
     <header className={headerClass}>
 
       {/* TOP ROW */}
-      <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-10 lg:pb-4 sm:px-8 lg:px-12">
+      <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-6 lg:pb-4 sm:px-8 lg:px-10">
 
         <span className="lg:hidden text-white text-[18px] font-semibold tracking-wide select-none z-10">
         Comfort  Chauffeur
