@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import PopularVehicles from "@/components/home/Vehicles";
 import SustainableTravel from "@/components/home/SustainableTravel";
 import OutstandingService from "@/components/home/OutstandingService";
+import Hero from "@/components/home/Hero";
 
 /* ================= TYPING SLIDER ================= */
 function TypingSlider() {
@@ -110,6 +111,8 @@ export default function Home() {
     
       {/* ================= VEHICLES ================= */}
       <PopularVehicles />
+            <Hero/>
+
       <OutstandingService/>
 
     </div>

@@ -181,7 +181,7 @@ export default function Navbar() {
       <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-10 lg:pb-4 sm:px-8 lg:px-12">
 
         <span className="lg:hidden text-white text-[18px] font-semibold tracking-wide select-none z-10">
-          Chauffeur
+        Comfort  Chauffeur
         </span>
 
         {/* ✅ Fixed: was missing opening <a> tag */}
@@ -200,7 +200,7 @@ export default function Navbar() {
             <LogoEmblem />
           </span>
           <span className="hidden md:inline text-white text-[20px] font-semibold select-none">
-            Chauffeur
+         Comfort   Chauffeur
           </span>
         </Link>
 
