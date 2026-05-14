@@ -107,7 +107,7 @@ export default function OutstandingService() {
         </p>
 
         {/* CTA Button */}
-        <Link
+        {/* <Link
           href="/our-company"
           className="inline-flex items-center justify-center self-start px-10 py-4 rounded-full transition-all duration-300  bg-[#c9a84c] hover:bg-[#b8963f] text-white"
           style={{
@@ -118,7 +118,7 @@ export default function OutstandingService() {
           }}
         >
           Our Company
-        </Link>
+        </Link> */}
       </div>
 
     </section>

@@ -106,7 +106,7 @@ export default function Hero() {
             transition: "opacity 1s ease 0.9s, transform 1s ease 0.9s",
           }}
         >
-          <Link
+          <p
             href="/book"
             className="inline-flex items-center justify-center rounded-full transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             style={{
@@ -122,9 +122,9 @@ export default function Hero() {
             }}
           >
             Book Your Journey
-          </Link>
+          </p>
 
-          <Link
+          <p
             href="/services"
             className="inline-flex items-center justify-center rounded-full transition-all duration-300 hover:bg-white/10 w-full sm:w-auto"
             style={{
@@ -139,7 +139,7 @@ export default function Hero() {
             }}
           >
             Our Services
-          </Link>
+          </p>
         </div>
 
         {/* Trust badges — 2x2 on mobile, 4 in a row on sm+ */}

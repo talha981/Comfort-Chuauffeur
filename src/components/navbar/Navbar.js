@@ -11,7 +11,7 @@ const NAV_LINKS = [
     hasDropdown: true,
     items: [
       { label: "Mercedes S-Class", href: "/mercedes-s-class" },
-      { label: "Rolls Royce", href: "/about/mercedes-s-class" },
+      { label: "Mercedes V-Class", href: "/Vehiclevclass" },
       { label: "Range Rover", href: "/about/range-rover" },
       { label: "BMW 7 Series", href: "/about/bmw-7-series" },
     ],
@@ -187,7 +187,7 @@ export default function Navbar() {
         {/* ✅ Fixed: was missing opening <a> tag */}
         
          < a href="tel:+442084004829"
-          className="hidden lg:flex items-center gap-2 text-white text-[17px] font-normal tracking-wide hover:opacity-70 transition-opacity z-10">
+          className="hidden lg:flex items-center gap-2 text-white text-[13px] font-normal tracking-wide hover:opacity-70 transition-opacity z-10">
           <GBFlag />
           <span>+44 (0)20 8400 4829</span>
         </a>
