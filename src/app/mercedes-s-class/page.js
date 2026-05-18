@@ -4,7 +4,7 @@ import About from "@/components/OurCars/mercedes-s-class/header";
 export default function Page() {
   return (
     <>
-      <About />
+      {/* <About /> */}
       <BookSClass />
     </>
   );

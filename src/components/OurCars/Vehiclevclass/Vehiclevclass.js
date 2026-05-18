@@ -7,8 +7,8 @@ import Link from "next/link";
 const MODEL = {
   name: "S 680",
   subtitle: "Mercedes-Maybach S680 · Ultra-Luxury Chauffeur Hire",
-  heroImage: "/vehicles/mercedes-maybach.jpg",
-  carImage: "/vehicles/mercedes-benz-maybach-2023.jpg",
+  heroImage: "/mercedes s class.jpg",
+  carImage: "/mercedes-benz-s-class-2023.jpg",
   category: "Ultra-Luxury · By Appointment",
   badge: null,
   specs: [
@@ -155,13 +155,13 @@ export default function MaybachPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          BOOKING SECTION (dark for Maybach)
+          BOOKING SECTION (white background)
       ══════════════════════════════════════════ */}
-      <section className="w-full px-6 sm:px-10 lg:px-16 py-14 lg:py-20" style={{ background: "#05080f", fontFamily: "Georgia, serif" }}>
+      <section className="relative w-full px-6 sm:px-10 lg:px-16 py-14 lg:py-20" style={{ background: "#ffffff", fontFamily: "Georgia, serif" }}>
 
-        {/* Gold grid texture */}
+        {/* Subtle gold grid texture on white */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.03) 1px,transparent 1px)`,
+          backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.06) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.06) 1px,transparent 1px)`,
           backgroundSize: "80px 80px",
         }} />
 
@@ -173,14 +173,14 @@ export default function MaybachPage() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold mb-5" style={{ color: "#fff", letterSpacing: "-0.01em" }}>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-5" style={{ color: "#0a0c10", letterSpacing: "-0.01em" }}>
             BOOK YOUR MAYBACH {MODEL.name}
           </h2>
 
           {/* Specs row */}
-          <div className="flex flex-wrap items-center gap-6 pb-5 mb-10" style={{ borderBottom: "1px solid rgba(201,168,76,0.2)" }}>
+          <div className="flex flex-wrap items-center gap-6 pb-5 mb-10" style={{ borderBottom: "1px solid rgba(201,168,76,0.35)" }}>
             {MODEL.specs.map((spec) => (
-              <div key={spec.label} className="flex items-center gap-2 text-[14px]" style={{ color: "rgba(255,255,255,0.55)" }}>
+              <div key={spec.label} className="flex items-center gap-2 text-[14px]" style={{ color: "rgba(10,12,16,0.55)" }}>
                 <span style={{ color: "#c9a84c" }}>{spec.icon}</span>
                 <span>{spec.label}</span>
               </div>
@@ -202,26 +202,26 @@ export default function MaybachPage() {
               {MODEL.features.map((feature) => (
                 <div key={feature} className="flex items-start gap-3">
                   <CheckIcon />
-                  <span className="text-[15px] leading-snug" style={{ color: "rgba(255,255,255,0.6)" }}>{feature}</span>
+                  <span className="text-[15px] leading-snug" style={{ color: "rgba(10,12,16,0.65)" }}>{feature}</span>
                 </div>
               ))}
             </div>
 
-            {/* Pricing card — gold-tinted dark */}
+            {/* Pricing card — gold-tinted on white */}
             <div className="rounded-2xl p-6 flex flex-col gap-1" style={{
               background: "rgba(201,168,76,0.05)",
-              border: "1px solid rgba(201,168,76,0.25)",
+              border: "1px solid rgba(201,168,76,0.35)",
             }}>
               {MODEL.pricing.map((item, i) => (
                 <div key={item.label}>
                   <div className="flex items-center justify-between py-3.5">
-                    <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.55)" }}>{item.label}</span>
+                    <span className="text-[14px]" style={{ color: "rgba(10,12,16,0.55)" }}>{item.label}</span>
                     <span className="font-bold text-[15px] ml-4 flex-shrink-0" style={{ color: "#c9a84c" }}>{item.price}</span>
                   </div>
-                  {i < MODEL.pricing.length - 1 && <div className="h-px" style={{ background: "rgba(201,168,76,0.15)" }} />}
+                  {i < MODEL.pricing.length - 1 && <div className="h-px" style={{ background: "rgba(201,168,76,0.2)" }} />}
                 </div>
               ))}
-              <p className="text-[12px] font-semibold mt-2 mb-5" style={{ color: "rgba(255,255,255,0.3)" }}>Prices subject to VAT</p>
+              <p className="text-[12px] font-semibold mt-2 mb-5" style={{ color: "rgba(10,12,16,0.35)" }}>Prices subject to VAT</p>
               <Link
                 href={MODEL.bookHref}
                 className="flex items-center justify-between w-full font-bold text-[12px] tracking-[0.18em] uppercase px-6 py-4 rounded-full transition-all duration-300 group hover:scale-105"
