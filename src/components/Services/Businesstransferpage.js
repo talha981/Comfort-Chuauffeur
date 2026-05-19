@@ -168,10 +168,78 @@ const STATS = [
   Achieved with a flex row centred on the viewport,
   no padding, overflow:hidden on the wrapper.
 */
+/* ─── BRAND SVG LOGOS ────────────────────────── */
+const BRAND_LOGOS = [
+  {
+    name: "British Airways",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <text x="130" y="28" textAnchor="middle" fontFamily="Georgia, serif" fontSize="16" fill="white" letterSpacing="4">BRITISH</text>
+        <text x="130" y="56" textAnchor="middle" fontFamily="Georgia, serif" fontSize="28" fill="white" letterSpacing="2">AIRWAYS</text>
+        <line x1="30" y1="64" x2="230" y2="64" stroke="white" strokeWidth="0.8" opacity="0.3"/>
+        <text x="130" y="76" textAnchor="middle" fontFamily="Georgia, serif" fontSize="9" fill="white" opacity="0.5" letterSpacing="6">EST. 1974</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Barclays",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <path d="M115 18 Q130 8 145 18 Q140 28 130 30 Q120 28 115 18Z" fill="white" opacity="0.9"/>
+        <path d="M122 30 Q130 35 138 30 L136 40 Q130 43 124 40Z" fill="white" opacity="0.7"/>
+        <text x="130" y="62" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="300" fill="white" letterSpacing="3">BARCLAYS</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Rolex",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <path d="M114 24 L119 16 L124 24 L130 12 L136 24 L141 16 L146 24 L148 31 L112 31Z" fill="white" opacity="0.85"/>
+        <line x1="111" y1="31" x2="149" y2="31" stroke="white" strokeWidth="1.2"/>
+        <text x="130" y="56" textAnchor="middle" fontFamily="Georgia, serif" fontSize="26" fill="white" letterSpacing="5">ROLEX</text>
+        <text x="130" y="70" textAnchor="middle" fontFamily="Georgia, serif" fontSize="9" fill="white" opacity="0.45" letterSpacing="5">GENEVA · EST. 1905</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Goldman Sachs",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <text x="130" y="34" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="300" fill="white" letterSpacing="2">GOLDMAN</text>
+        <line x1="50" y1="43" x2="210" y2="43" stroke="white" strokeWidth="0.5" opacity="0.3"/>
+        <text x="130" y="62" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="22" fontWeight="300" fill="white" letterSpacing="2">SACHS</text>
+      </svg>
+    ),
+  },
+  {
+    name: "HSBC",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <polygon points="116,16 126,10 136,16 136,32 126,38 116,32" fill="none" stroke="white" strokeWidth="1.2" opacity="0.7"/>
+        <line x1="116" y1="24" x2="136" y2="24" stroke="white" strokeWidth="0.8" opacity="0.4"/>
+        <line x1="126" y1="10" x2="126" y2="38" stroke="white" strokeWidth="0.8" opacity="0.4"/>
+        <text x="130" y="62" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="26" fontWeight="300" fill="white" letterSpacing="6">HSBC</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Rolls-Royce",
+    svg: (
+      <svg viewBox="0 0 260 80" width="240" height="75" fill="none">
+        <text x="130" y="28" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="white" letterSpacing="3" opacity="0.8">✦ RR ✦</text>
+        <line x1="40" y1="36" x2="220" y2="36" stroke="white" strokeWidth="0.5" opacity="0.2"/>
+        <text x="130" y="56" textAnchor="middle" fontFamily="Georgia, serif" fontSize="18" fill="white" letterSpacing="4">ROLLS-ROYCE</text>
+        <text x="130" y="70" textAnchor="middle" fontFamily="Georgia, serif" fontSize="9" fill="white" opacity="0.4" letterSpacing="5">MOTOR CARS</text>
+      </svg>
+    ),
+  },
+];
+/* ─── LOGO SLIDER ────────────────────────────── */
 function LogoSlider() {
   const [current, setCurrent] = useState(0);
   const [locked, setLocked] = useState(false);
-  const total = CLIENT_LOGOS.length;
+  const total = BRAND_LOGOS.length;
   const touchStartX = useRef(null);
 
   const go = (dir) => {
@@ -192,25 +260,30 @@ function LogoSlider() {
   const prevIdx = (current - 1 + total) % total;
   const nextIdx = (current + 1) % total;
 
-  /* Placeholder shown when image fails to load */
-  const Fallback = ({ name }) => (
-    <div style={{
-      display: "flex", flexDirection: "column",
-      alignItems: "center", justifyContent: "center", gap: "10px",
-      width: "100%", height: "100%",
-    }}>
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-      </svg>
-      <span style={{ fontSize: "9px", color: "rgba(255,255,255,0.2)", letterSpacing: "0.18em", textTransform: "uppercase" }}>
-        {name}
-      </span>
+  const Card = ({ idx, isCenter, onClick }) => (
+    <div
+      onClick={onClick}
+      style={{
+        width: isCenter ? "var(--card-center-w)" : "var(--card-side-w)",
+        height: isCenter ? "clamp(140px, 17vw, 240px)" : "clamp(120px, 14vw, 200px)",
+        flexShrink: 0,
+        background: "#000",
+        border: isCenter ? "1.5px solid rgba(201,168,76,0.6)" : "1px solid rgba(90,90,90,0.5)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        overflow: "hidden",
+        opacity: isCenter ? 1 : 0.5,
+        cursor: isCenter ? "default" : "pointer",
+        transition: "all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)",
+        position: "relative",
+        zIndex: isCenter ? 2 : 1,
+      }}
+    >
+      {BRAND_LOGOS[idx].svg}
     </div>
   );
 
   return (
     <div style={{ background: "#f5f4f1", paddingTop: "48px", paddingBottom: "52px" }}>
-      {/* Section label */}
       <div style={{ textAlign: "center", marginBottom: "40px", padding: "0 24px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "12px" }}>
           <div style={{ width: "36px", height: "1px", background: "#c9a84c" }} />
@@ -228,25 +301,12 @@ function LogoSlider() {
         </h2>
       </div>
 
-      {/* ── FULL-WIDTH SLIDER ── */}
       <div
-        style={{
-          width: "100%",
-          overflow: "hidden",
-          position: "relative",
-          /* Height: tall on desktop, shorter on mobile */
-          height: "clamp(140px, 18vw, 260px)",
-          userSelect: "none",
-        }}
+        style={{ width: "100%", overflow: "hidden", position: "relative",
+          height: "clamp(140px, 18vw, 260px)", userSelect: "none" }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/*
-          We render 3 cards in a flex row.
-          The row is translated so the CENTER card sits in the viewport middle.
-          Each card has a fixed width defined by CSS variables.
-          On mobile the side cards are thinner.
-        */}
         <style>{`
           :root {
             --card-center-w: clamp(280px, 50vw, 660px);
@@ -262,136 +322,39 @@ function LogoSlider() {
           }
         `}</style>
 
-        {/* Track: absolute-centred flex row */}
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            display: "flex",
-            alignItems: "center",
-            gap: "var(--card-gap)",
-            /* Total track width must be wide enough so sides bleed off edges */
-            width: "calc(var(--card-center-w) + 2 * var(--card-side-w) + 2 * var(--card-gap))",
-            transition: "none",
-          }}
-        >
-          {/* LEFT card */}
-          <div
-            onClick={() => go(-1)}
-            style={{
-              width: "var(--card-side-w)",
-              height: "clamp(120px, 14vw, 200px)",
-              flexShrink: 0,
-              background: "#000",
-              border: "1px solid rgba(90,90,90,0.5)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              overflow: "hidden",
-              opacity: 0.5,
-              cursor: "pointer",
-              transition: "opacity 0.4s",
-            }}
-          >
-            <img
-              src={CLIENT_LOGOS[prevIdx].image}
-              alt={CLIENT_LOGOS[prevIdx].name}
-              draggable={false}
-              style={{ maxWidth: "62%", maxHeight: "62%", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-              onError={(e) => { e.target.style.display = "none"; }}
-            />
-          </div>
-
-          {/* CENTER card */}
-          <div
-            style={{
-              width: "var(--card-center-w)",
-              height: "clamp(140px, 17vw, 240px)",
-              flexShrink: 0,
-              background: "#000",
-              border: "1.5px solid rgba(201,168,76,0.6)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              overflow: "hidden",
-              opacity: 1,
-              transition: "all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)",
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
-            <img
-              src={CLIENT_LOGOS[current].image}
-              alt={CLIENT_LOGOS[current].name}
-              draggable={false}
-              style={{ maxWidth: "62%", maxHeight: "62%", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-              onError={(e) => { e.target.style.display = "none"; }}
-            />
-          </div>
-
-          {/* RIGHT card */}
-          <div
-            onClick={() => go(1)}
-            style={{
-              width: "var(--card-side-w)",
-              height: "clamp(120px, 14vw, 200px)",
-              flexShrink: 0,
-              background: "#000",
-              border: "1px solid rgba(90,90,90,0.5)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              overflow: "hidden",
-              opacity: 0.5,
-              cursor: "pointer",
-              transition: "opacity 0.4s",
-            }}
-          >
-            <img
-              src={CLIENT_LOGOS[nextIdx].image}
-              alt={CLIENT_LOGOS[nextIdx].name}
-              draggable={false}
-              style={{ maxWidth: "62%", maxHeight: "62%", objectFit: "contain", filter: "brightness(0) invert(1)" }}
-              onError={(e) => { e.target.style.display = "none"; }}
-            />
-          </div>
+        <div style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex", alignItems: "center", gap: "var(--card-gap)",
+          width: "calc(var(--card-center-w) + 2 * var(--card-side-w) + 2 * var(--card-gap))",
+        }}>
+          <Card idx={prevIdx} isCenter={false} onClick={() => go(-1)} />
+          <Card idx={current} isCenter={true} onClick={null} />
+          <Card idx={nextIdx} isCenter={false} onClick={() => go(1)} />
         </div>
       </div>
 
-      {/* ── CONTROLS ── */}
-      <div style={{
-        display: "flex", flexDirection: "column",
-        alignItems: "center", gap: "14px",
-        marginTop: "22px", padding: "0 24px",
-      }}>
-        {/* Dots */}
+      {/* Controls */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", marginTop: "22px", padding: "0 24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-          {CLIENT_LOGOS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              aria-label={`Go to slide ${i + 1}`}
+          {BRAND_LOGOS.map((_, i) => (
+            <button key={i} onClick={() => setCurrent(i)} aria-label={`Go to slide ${i + 1}`}
               style={{
-                width: i === current ? "30px" : "8px",
-                height: "3px",
-                borderRadius: "2px",
+                width: i === current ? "30px" : "8px", height: "3px", borderRadius: "2px",
                 background: i === current ? "#0a0c10" : "rgba(10,12,16,0.2)",
-                border: "none", cursor: "pointer", padding: 0,
-                transition: "all 0.35s ease",
+                border: "none", cursor: "pointer", padding: 0, transition: "all 0.35s ease",
               }}
             />
           ))}
         </div>
-
-        {/* Arrow buttons */}
         <div style={{ display: "flex", gap: "10px" }}>
           {[{ fn: () => go(-1), icon: <ChevronLeft /> }, { fn: () => go(1), icon: <ChevronRight /> }].map(({ fn, icon }, i) => (
-            <button
-              key={i}
-              onClick={fn}
-              style={{
-                width: "38px", height: "38px", borderRadius: "50%",
-                border: "1px solid rgba(10,12,16,0.2)",
-                background: "transparent", color: "#0a0c10",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                cursor: "pointer", transition: "all 0.2s",
-              }}
+            <button key={i} onClick={fn} style={{
+              width: "38px", height: "38px", borderRadius: "50%",
+              border: "1px solid rgba(10,12,16,0.2)", background: "transparent", color: "#0a0c10",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              cursor: "pointer", transition: "all 0.2s",
+            }}
               onMouseEnter={e => { e.currentTarget.style.background = "#0a0c10"; e.currentTarget.style.color = "#fff"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0a0c10"; }}
             >
