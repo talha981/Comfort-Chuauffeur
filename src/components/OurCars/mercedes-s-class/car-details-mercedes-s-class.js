@@ -89,11 +89,11 @@ export default function SClassPage() {
       <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/mercedes s class.jpg')` }}
+          style={{ backgroundImage: `url('/2021-Mercedes-Benz-S-Class.jpg')` }}
         />
         {/* Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
         {/* Subtle gold shimmer */}
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -105,7 +105,7 @@ export default function SClassPage() {
           <div className="flex items-center gap-4 mb-5">
             <div style={{ width: "40px", height: "1px", background: "#c9a84c" }} />
             <span style={{ fontSize: "10px", letterSpacing: "0.38em", textTransform: "uppercase", color: "#c9a84c" }}>
-              Business Luxury · Chauffeur Hire
+              Business Luxury
             </span>
             <div style={{ width: "40px", height: "1px", background: "#c9a84c" }} />
           </div>

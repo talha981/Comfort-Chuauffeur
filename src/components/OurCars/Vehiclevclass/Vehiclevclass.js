@@ -7,7 +7,7 @@ import Link from "next/link";
 const MODEL = {
   name: "S 680",
   subtitle: "Mercedes-Maybach S680 · Ultra-Luxury Chauffeur Hire",
-  heroImage: "/mercedes s class.jpg",
+  heroImage: "/maybach-S680-3-1400x788.jpg",
   carImage: "/mercedes-benz-s-class-2023.jpg",
   category: "Ultra-Luxury · By Appointment",
   badge: null,
@@ -86,8 +86,8 @@ export default function MaybachPage() {
           style={{ backgroundImage: `url('${MODEL.heroImage}')` }}
         />
         {/* Heavier vignette for ultra-luxury mood */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
         {/* Subtle gold shimmer overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
