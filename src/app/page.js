@@ -87,24 +87,33 @@ export default function Home() {
             UNRIVALLED RELIABILITY. MULTI-AWARD-WINNING
           </p>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+         {/* Buttons */}
+<div className="flex flex-col sm:flex-row gap-4 mt-8">
 
-            <a
-              href="#"
-              className="px-8 py-3 bg-blue-600 rounded-full text-white font-medium hover:bg-blue-700 transition"
-            >
-              REQUEST QUOTE →
-            </a>
+  <a
+    href="#"
+    className="px-8 py-3.5 rounded-full font-bold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:scale-105 inline-flex items-center justify-center"
+    style={{
+      background: "linear-gradient(135deg, #c9a84c, #f0d98a, #c9a84c)",
+      color: "#0a0c10",
+      boxShadow: "0 0 32px rgba(201,168,76,0.5)",
+    }}
+  >
+    REQUEST QUOTE →
+  </a>
 
-            <a
-              href="#"
-              className="px-8 py-3 border border-white rounded-full hover:bg-white hover:text-black transition"
-            >
-              GET A PRICE & BOOK →
-            </a>
+  <a
+    href="#"
+    className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:bg-white/10"
+    style={{
+      border: "1px solid rgba(201,168,76,0.6)",
+      color: "#c9a84c",
+    }}
+  >
+    GET A PRICE & BOOK →
+  </a>
 
-          </div>
+</div>
         </div>
       </section>
 

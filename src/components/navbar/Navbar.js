@@ -22,7 +22,7 @@ const NAV_LINKS = [
     clickable: true,
     hasDropdown: true,
     items: [
-      { label: "Airport Transfers", href: "/services/airport-transfers" },
+      { label: "Airport Transfers", href: "/airporttransfer" },
       { label: "Corporate Travel", href: "/services/corporate-travel" },
       { label: "Wedding Cars", href: "/services/wedding-cars" },
       { label: "Events", href: "/services/events" },
