@@ -239,140 +239,167 @@ export default function AirportTransferPage() {
       {/* ══════════════════════════════════════════
           HERO
       ══════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>  
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/ariport-services.jpg')", filter: "brightness(0.85)" }}
-        />
-        {/* Gold vignette */}
-        <div className="absolute inset-0" style={{
-          background: "radial-gradient(ellipse at 25% 75%, rgba(201,168,76,0.12) 0%, transparent 55%)",
-        }} />
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 100%)",
-        }} />
-        {/* Gold grid texture */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.04) 1px,transparent 1px)`,
-          backgroundSize: "100px 100px",
-        }} />
+      <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: "url('/ariport-services.jpg')", filter: "brightness(0.85)" }}
+  />
+  {/* Gold vignette */}
+  <div className="absolute inset-0" style={{
+    background: "radial-gradient(ellipse at 25% 75%, rgba(201,168,76,0.12) 0%, transparent 55%)",
+  }} />
+  <div className="absolute inset-0" style={{
+    background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 100%)",
+  }} />
+  {/* Gold grid texture */}
+  <div className="absolute inset-0 pointer-events-none" style={{
+    backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.04) 1px,transparent 1px)`,
+    backgroundSize: "100px 100px",
+  }} />
 
-        <div className="relative z-10 flex flex-col justify-between h-full" style={{ minHeight: "100vh", padding: "0 clamp(24px, 5vw, 80px)" }}>
-          {/* Top badge */}
-          <div className="pt-25">
-            <span style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              fontSize: "10px", letterSpacing: "0.32em", textTransform: "uppercase",
-              color: "#c9a84c", border: "1px solid rgba(201,168,76,0.4)",
-              padding: "8px 18px", borderRadius: "100px",
-            }}>
-              <span style={{ display: "inline-block", width: "5px", height: "5px", borderRadius: "50%", background: "#c9a84c" }} />
-              Professional Chauffeur Services · London
-            </span>
+  <div
+    className="relative z-10 flex flex-col justify-between"
+    style={{ minHeight: "100vh", padding: "0 clamp(20px, 5vw, 80px)" }}
+  >
+    {/* Top badge */}
+    <div className="pt-10 sm:pt-16 md:pt-24">
+      <span style={{
+        display: "inline-flex", alignItems: "center", gap: "8px",
+        fontSize: "9px", letterSpacing: "0.28em", textTransform: "uppercase",
+        color: "#c9a84c"    ,
+        padding: "7px 14px", borderRadius: "100px",
+      }}>
+        <span style={{ display: "inline-block", flexShrink: 0 }} />
+      </span>
+    </div>
+
+    {/* Main content */}
+    <div style={{ paddingBottom: "clamp(40px, 6vh, 100px)" }}>
+      {/* Divider line */}
+      <div className="flex items-center gap-3 mb-4" style={{ flexWrap: "wrap" }}>
+        <div style={{ width: "32px", height: "1px", background: "#c9a84c", flexShrink: 0 }} />
+        <span style={{ fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#c9a84c" }}>
+          Airport Transfers · All Major Airports
+        </span>
+        <div style={{ width: "32px", height: "1px", background: "#c9a84c", flexShrink: 0 }} />
+      </div>
+
+      <p style={{
+        fontSize: "clamp(11px, 2vw, 17px)",
+        color: "rgba(255,255,255,0.45)",
+        letterSpacing: "0.2em", textTransform: "uppercase",
+        fontFamily: "Georgia, serif", marginBottom: "6px",
+      }}>
+        From Runway to Destination
+      </p>
+
+      <h1 style={{
+        fontFamily: "Georgia, serif",
+        fontSize: "clamp(48px, 14vw, 96px)",
+        fontWeight: "400",
+        lineHeight: "1.0",
+        letterSpacing: "-0.02em",
+        marginBottom: "16px",
+        background: "linear-gradient(90deg, #fff 55%, rgba(201,168,76,0.9))",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        textShadow: "none",
+      }}>
+        Airport<br />Transfer
+      </h1>
+
+      <p style={{
+        color: "rgba(255,255,255,0.55)",
+        fontSize: "clamp(13px, 1.5vw, 17px)",
+        maxWidth: "520px",
+        lineHeight: "1.7",
+        marginBottom: "28px",
+      }}>
+        Seamless luxury chauffeur transfers to and from all London airports.
+        Flight-tracked. White-glove. Always on time.
+      </p>
+
+      {/* CTA Buttons */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "36px" }}>
+        <Link
+          href="/book?service=airport"
+          style={{
+            display: "inline-flex", alignItems: "center", gap: "10px",
+            padding: "13px 28px", borderRadius: "100px",
+            background: "linear-gradient(135deg, #c9a84c, #f0d98a, #c9a84c)",
+            color: "#0a0c10", fontWeight: "700",
+            fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase",
+            textDecoration: "none",
+            boxShadow: "0 0 36px rgba(201,168,76,0.45)",
+            transition: "all 0.3s",
+            whiteSpace: "nowrap",
+          }}
+        >
+          ✦ &nbsp;Book Your Transfer
+        </Link>
+        <Link
+          href="#pricing"
+          style={{
+            display: "inline-flex", alignItems: "center", gap: "10px",
+            padding: "13px 28px", borderRadius: "100px",
+            border: "1px solid rgba(201,168,76,0.5)",
+            color: "#c9a84c", fontWeight: "700",
+            fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase",
+            textDecoration: "none",
+            transition: "all 0.3s",
+            whiteSpace: "nowrap",
+          }}
+        >
+          View Pricing
+        </Link>
+      </div>
+
+      {/* Stat cards — inline on mobile, absolutely positioned on desktop */}
+      <div
+        className="stat-cards"
+        style={{
+          display: "flex",
+          gap: "10px",
+          flexWrap: "wrap",
+        }}
+      >
+        {[
+          { value: "60", unit: "min", label: "Free wait time" },
+          { value: "24", unit: "/7", label: "Available always" },
+          { value: "5★", unit: "", label: "Rated service" },
+        ].map((s) => (
+          <div key={s.label} style={{
+            background: "rgba(10,12,16,0.65)",
+            border: "1px solid rgba(201,168,76,0.3)",
+            borderRadius: "14px", padding: "12px 16px",
+            backdropFilter: "blur(12px)",
+            textAlign: "center", minWidth: "80px", flex: "1 1 80px",
+          }}>
+            <div style={{ fontFamily: "Georgia, serif", fontSize: "20px", color: "#c9a84c", lineHeight: 1 }}>
+              {s.value}<span style={{ fontSize: "12px" }}>{s.unit}</span>
+            </div>
+            <div style={{ fontSize: "9px", color: "rgba(255,255,255,0.45)", letterSpacing: "0.12em", marginTop: "4px" }}>{s.label}</div>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
-          {/* Main headline */}
-          <div style={{ paddingBottom: "clamp(56px, 8vh, 100px)" }}>
-            <div className="flex items-center gap-4 mb-5">
-              <div style={{ width: "48px", height: "1px", background: "#c9a84c" }} />
-              <span style={{ fontSize: "10px", letterSpacing: "0.38em", textTransform: "uppercase", color: "#c9a84c" }}>
-                Airport Transfers · All Major Airports
-              </span>
-              <div style={{ width: "48px", height: "1px", background: "#c9a84c" }} />
-            </div>
-
-            <p style={{
-              fontSize: "clamp(13px, 2vw, 17px)",
-              color: "rgba(255,255,255,0.45)",
-              letterSpacing: "0.2em", textTransform: "uppercase",
-              fontFamily: "Georgia, serif", marginBottom: "6px",
-            }}>
-              From Runway to Destination
-            </p>
-
-            <h1 style={{
-              fontFamily: "Georgia, serif",
-              fontSize: "clamp(44px, 7.5vw, 96px)",
-              fontWeight: "400",
-              lineHeight: "1.0",
-              letterSpacing: "-0.02em",
-              marginBottom: "20px",
-              background: "linear-gradient(90deg, #fff 55%, rgba(201,168,76,0.9))",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textShadow: "none",
-            }}>
-              Airport<br />Transfer
-            </h1>
-
-            <p style={{
-              color: "rgba(255,255,255,0.55)",
-              fontSize: "clamp(14px, 1.5vw, 17px)",
-              maxWidth: "520px",
-              lineHeight: "1.7",
-              marginBottom: "40px",
-            }}>
-              Seamless luxury chauffeur transfers to and from all London airports.
-              Flight-tracked. White-glove. Always on time.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/book?service=airport"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "10px",
-                  padding: "14px 32px", borderRadius: "100px",
-                  background: "linear-gradient(135deg, #c9a84c, #f0d98a, #c9a84c)",
-                  color: "#0a0c10", fontWeight: "700",
-                  fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase",
-                  textDecoration: "none",
-                  boxShadow: "0 0 36px rgba(201,168,76,0.45)",
-                  transition: "all 0.3s",
-                }}
-              >
-                ✦ &nbsp;Book Your Transfer
-              </Link>
-              <Link
-                href="#pricing"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "10px",
-                  padding: "14px 32px", borderRadius: "100px",
-                  border: "1px solid rgba(201,168,76,0.5)",
-                  color: "#c9a84c", fontWeight: "700",
-                  fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "all 0.3s",
-                }}
-              >
-                View Pricing
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating stat cards at bottom-right */}
-        <div className="absolute" style={{ bottom: "clamp(40px, 6vh, 80px)", right: "clamp(24px, 5vw, 80px)", display: "flex", gap: "14px" }}>
-          {[
-            { value: "60", unit: "min", label: "Free wait time" },
-            { value: "24", unit: "/7", label: "Available always" },
-            { value: "5★", unit: "", label: "Rated service" },
-          ].map((s) => (
-            <div key={s.label} style={{
-              background: "rgba(10,12,16,0.65)",
-              border: "1px solid rgba(201,168,76,0.3)",
-              borderRadius: "14px", padding: "14px 18px",
-              backdropFilter: "blur(12px)",
-              textAlign: "center", minWidth: "90px",
-            }}>
-              <div style={{ fontFamily: "Georgia, serif", fontSize: "22px", color: "#c9a84c", lineHeight: 1 }}>
-                {s.value}<span style={{ fontSize: "13px" }}>{s.unit}</span>
-              </div>
-              <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.45)", letterSpacing: "0.12em", marginTop: "4px" }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+  {/* Tailwind-style media query override for desktop: reposition stat cards */}
+  <style>{`
+    @media (min-width: 768px) {
+      .stat-cards {
+        position: absolute !important;
+        bottom: clamp(40px, 6vh, 80px) !important;
+        right: clamp(24px, 5vw, 80px) !important;
+        flex-wrap: nowrap !important;
+        gap: 14px !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  `}</style>
+</section>
 
       {/* ══════════════════════════════════════════
           WHY CHOOSE US  (dark section)
