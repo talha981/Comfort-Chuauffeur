@@ -63,7 +63,7 @@ export default function Home() {
           loop
           muted
           playsInline
-  className="absolute top-0 left-0 w-full h-full object-cover brightness-150 contrast-110 saturate-125"
+  className="absolute top-0 left-0 w-full h-full object-cover brightness-120 contrast-110 saturate-125"
         >
           <source src="/service-video-bg.mp4" type="video/mp4" />
         </video>

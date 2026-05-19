@@ -23,7 +23,7 @@ const NAV_LINKS = [
     hasDropdown: true,
     items: [
       { label: "Airport Transfers", href: "/airporttransfer" },
-      { label: "Corporate Travel", href: "/services/corporate-travel" },
+      { label: "Business", href: "/businesstransfer" },
       { label: "Wedding Cars", href: "/services/wedding-cars" },
       { label: "Events", href: "/services/events" },
     ],
@@ -178,11 +178,11 @@ export default function Navbar() {
     <header className={headerClass}>
 
       {/* TOP ROW */}
-      <div className="relative flex items-center justify-between px-5 pt-8 pb-3 lg:pt-6 lg:pb-4 sm:px-8 lg:px-10">
+      <div className="relative mt-2  flex items-center justify-between px-5 pt-8 pb-3 lg:pt-6 lg:pb-4 sm:px-8 lg:px-10">
 
-        {/* <span className="lg:hidden text-white text-[18px] font-semibold tracking-wide select-none z-10">
-        Comfort  Chauffeur
-        </span> */}
+        <span className="lg:hidden  text-white text-[18px] font-semibold tracking-wide select-none z-10">
+        iChauffeur
+        </span>
 
         {/* ✅ Fixed: was missing opening <a> tag */}
         
@@ -196,11 +196,9 @@ export default function Navbar() {
           href="/"
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 group"
         >
-          <span className="hidden md:block">
-            <LogoEmblem />
-          </span>
-          <span className="hidden md:inline text-white text-[20px] font-semibold select-none">
-         {/* Comfort   Chauffeur */}
+          
+          <span className="hidden  md:inline text-white text-[20px] font-semibold select-none">
+         iChauffeur
           </span>
         </Link>
 
@@ -218,7 +216,7 @@ export default function Navbar() {
       </div>
 
       {/* Separator */}
-      <div className="hidden lg:block h-px bg-white/15 mx-8" />
+      <div className="hidden lg:block h-px  mx-8" />
 
       {/* DESKTOP NAV */}
       <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-10 px-12 py-3">

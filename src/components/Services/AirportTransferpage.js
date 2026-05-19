@@ -241,22 +241,19 @@ export default function AirportTransferPage() {
       ══════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: "100vh" }}>
   {/* Background image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: "url('/ariport-services.jpg')", filter: "brightness(0.85)" }}
-  />
-  {/* Gold vignette */}
-  <div className="absolute inset-0" style={{
-    background: "radial-gradient(ellipse at 25% 75%, rgba(201,168,76,0.12) 0%, transparent 55%)",
-  }} />
-  <div className="absolute inset-0" style={{
-    background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.35) 100%)",
-  }} />
-  {/* Gold grid texture */}
-  <div className="absolute inset-0 pointer-events-none" style={{
-    backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.04) 1px,transparent 1px)`,
-    backgroundSize: "100px 100px",
-  }} />
+ <div className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/ariport-services.jpg')", filter: "brightness(0.8)" }}
+        />
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(ellipse at 30% 70%, rgba(201,168,76,0.1) 0%, transparent 55%)",
+        }} />
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.42) 100%)",
+        }} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(180deg,rgba(201,168,76,0.04) 1px,transparent 1px)`,
+          backgroundSize: "100px 100px",
+        }} />
 
   <div
     className="relative z-10 flex flex-col justify-between"
